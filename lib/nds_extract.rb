@@ -6,6 +6,7 @@ require 'pp'
 # { directorOne => allTheMoneyTheyMade, ... }
 
 def directors_totals(nds)
+<<<<<<< HEAD
    totals = {}
   directors_names = [] 
    director_index = 0 
@@ -56,6 +57,39 @@ def directors_totals(nds)
   end
 
   totals
+=======
+  totals = {}
+  grosses = []
+ row_index = 0 
+  while row_index < directors_database.count do 
+   column_index = 0 
+   total = 0 
+     while column_index < directors_database[row_index][:movies].count do
+     total += directors_database[row_index][:movies][column_index][:worldwide_gross]
+      column_index+=1 
+     end
+   grosses.push(total)
+  row_index+=1 
+  end
+   return totals[grosses] = 0 
+end 
+# Find a way to accumulate the :worldwide_grosses and return that Integer
+# using director_data as input
+def gross_for_director(director_data)
+  directors = []
+   row_index = 0 
+   while row_index < directors_database.count do
+     directors.push(directors_database[row_index])
+     row_index+=1 
+   end 
+   counter = 0 
+   while counter < directors.count do
+      result = {}
+   result[directors[counter]] = gross_for_director(directors_database[counter])
+  counter+=1 
+  
+end
+>>>>>>> fba23c48b222cb13ab84f7e658fb7c44bda201bc
 end
 
 
